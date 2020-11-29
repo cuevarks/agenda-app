@@ -1,20 +1,20 @@
 import React from "react";
-import moment from "moment";
+import { Paper } from "@material-ui/core";
 import WeekDays from "../../components/WeekDays";
 import MonthDays from "../../components/MonthDays";
+import CalendarTitle from "../../components/CalendarTitle";
 import "../../scss/main.scss";
 
-export default function CalendarPage() {
-  const thisMonth = moment.months(moment().month());
-  console.log(moment("2020-01").startOf("month").format("d"));
-
+const CalendarPage = () => {
   return (
-    <>
-      <h1>{thisMonth}</h1>
-      <fragment className="calendar-layout">
+    <fragment className="container">
+      <Paper>
+        <CalendarTitle />
         <WeekDays />
         <MonthDays />
-      </fragment>
-    </>
+      </Paper>
+    </fragment>
   );
-}
+};
+
+export default CalendarPage;
