@@ -9,10 +9,10 @@ const weekDays = () => {
 
 export default function WeekDays() {
   return (
-    <>
+    <fragment className="weekdays-names-layout">
       {weekDays().map((weekDay) => (
-        <p>{weekDay}</p>
+        <h2>{weekDay}</h2>
       ))}
-    </>
+    </fragment>
   );
 }

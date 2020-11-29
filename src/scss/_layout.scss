@@ -1,5 +1,53 @@
-.calendar-layout {
+body {
+  background: url(../assets/background.png) repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+  .MuiPaper-root {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+}
+
+.days-layout,
+.weekdays-names-layout {
+  .month-day {
+    border: solid 1px #e8e8e8;
+    cursor: pointer;
+    display: flex;
+    padding-left: 1rem;
+
+    &:hover {
+      background-color: #e8e8e8;
+    }
+  }
+
+  h2 {
+    border: solid 1px #e8e8e8;
+    margin: unset;
+    padding-left: 1rem;
+  }
+}
+
+.weekdays-names-layout {
+  background-color: #ee9090;
   display: grid;
-  grid-template-columns: repeat(7, auto);
-  grid-template-rows: repeat(7, auto);
+  grid-template-columns: repeat(7, 150px);
+}
+
+.days-layout {
+  display: grid;
+  grid-template-columns: repeat(7, 150px);
+  grid-template-rows: repeat(5, 150px);
+}
+
+.calendar-title {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 }
