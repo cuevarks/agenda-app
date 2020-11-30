@@ -1,3 +1,5 @@
+@import "./_base.scss";
+
 body {
   background: url(../assets/background.png) repeat;
 }
@@ -17,33 +19,34 @@ body {
 .days-layout,
 .weekdays-names-layout {
   .month-day {
-    border: solid 1px #e8e8e8;
+    border: solid 1px $deep-white;
     cursor: pointer;
     display: flex;
     padding-left: 1rem;
 
     &:hover {
-      background-color: #e8e8e8;
+      background-color: $deep-white;
     }
   }
 
   h2 {
-    border: solid 1px #e8e8e8;
+    border: solid 1px $deep-white;
+    font-size: 1.2rem;
     margin: unset;
     padding-left: 1rem;
   }
 }
 
 .weekdays-names-layout {
-  background-color: #ee9090;
+  background-color: $almost-red;
   display: grid;
-  grid-template-columns: repeat(7, 150px);
+  grid-template-columns: repeat(7, 100px);
 }
 
 .days-layout {
   display: grid;
-  grid-template-columns: repeat(7, 150px);
-  grid-template-rows: repeat(5, 150px);
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(7, 100px);
 }
 
 .calendar-title {

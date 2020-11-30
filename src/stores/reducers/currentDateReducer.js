@@ -2,18 +2,11 @@ import moment from "moment";
 import { PREV_MONTH, NEXT_MONTH, PREV_YEAR, NEXT_YEAR } from "../actions/types";
 import { initialStore } from "../constant";
 
-const sanitizeValue = (value, updateType) => {
+const updateValue = (value, updateType) => {
   if (updateType === NEXT_MONTH) {
     return value + 1;
   }
   return value - 1;
-};
-
-const changeYear = (year, updateType) => {
-  if (updateType === NEXT_MONTH) {
-    return year + 1;
-  }
-  return year - 1;
 };
 
 const monthDays = (year, monthIndex) => {
@@ -38,13 +31,13 @@ const newMonth = (year, monthIndex, updateType) => {
   const nextYear = monthIndex === 11 && updateType === NEXT_MONTH;
 
   if (previousYear || nextYear) {
-    monthIndex = previousYear ? 10 : -1;
-    year = changeYear(year, updateType);
+    monthIndex = previousYear ? 12 : -1;
+    year = updateValue(year, updateType);
   }
 
-  const index = sanitizeValue(monthIndex, updateType);
+  const index = updateValue(monthIndex, updateType);
   const name = moment.months(index);
-  const days = monthDays(year, sanitizeValue(index, updateType));
+  const days = monthDays(year, updateValue(index, updateType));
 
   return { name, index, days, year };
 };
