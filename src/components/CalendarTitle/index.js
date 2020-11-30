@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Icon, IconButton } from "@material-ui/core";
-import { nextMonth, prevMonth, nextYear, prevYear } from "../../stores/actions";
+import dispatches from "./dispatches";
 
 const CalendarTitle = ({
   currentMonth,
@@ -43,19 +43,6 @@ const mapStateToProps = (state) => ({
   currentMonth: state.currentDate.currentMonth,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  nextMonth(year) {
-    dispatch(nextMonth(year));
-  },
-  prevMonth(year) {
-    dispatch(prevMonth(year));
-  },
-  nextYear(year) {
-    dispatch(nextYear(year));
-  },
-  prevYear(year) {
-    dispatch(prevYear(year));
-  },
-});
+const mapDispatchToProps = (dispatch) => dispatches(dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarTitle);
